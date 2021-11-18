@@ -9,4 +9,4 @@ The application also has Local Transportation System guide that provide all deta
 
 The application has Progressive web Application (PWA) for mobile device.
 
-Please refer CityPortal Report for more detail
+Please refer CityPortal Report for more details.
