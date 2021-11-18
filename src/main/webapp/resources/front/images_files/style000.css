@@ -1,0 +1,27 @@
+h1 {
+	font-family:verdana;
+}
+
+ul {
+padding:15px;
+width:970px;
+margin:10px;
+	/*
+	background:#333;
+	color:#fff;
+	padding:10px 20px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	width:970px;*/
+}
+
+ul li {
+list-style:none;
+
+text-align:center;
+
+
+color:#023A53;
+font-size:16px;
+font-weight:bold;
+}

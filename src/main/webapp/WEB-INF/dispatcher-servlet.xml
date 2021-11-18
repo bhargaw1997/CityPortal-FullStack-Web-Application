@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context" xmlns:mvc="http://www.springframework.org/schema/mvc"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-3.2.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd">
+    <context:component-scan base-package="com.ui.controller" />
+    <mvc:annotation-driven>
+        <mvc:argument-resolvers>
+            <bean class="org.springframework.mobile.device.site.SitePreferenceWebArgumentResolver" />           
+            <bean class="org.springframework.mobile.device.DeviceWebArgumentResolver" />
+        </mvc:argument-resolvers>
+    </mvc:annotation-driven>
+    
+    <!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
+    <mvc:resources mapping="/**" location="/" />
+	<mvc:resources mapping="/resources/**" location="/resources/" />
+	<mvc:resources mapping="/files/**" location="file:/images/" />
+	
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<!-- one of the properties available; the maximum file size in bytes -->
+		<property name="maxUploadSize" value="10000000" />
+	</bean>
+      
+    <mvc:interceptors>
+        <!-- Resolve the device which has generated the request -->
+        <bean class="org.springframework.mobile.device.DeviceResolverHandlerInterceptor" />
+     
+        <!-- User's site preference -->
+        <bean class="org.springframework.mobile.device.site.SitePreferenceHandlerInterceptor" />
+     
+        <!-- Redirects users to the device specific site -->
+        <bean class="org.springframework.mobile.device.switcher.SiteSwitcherHandlerInterceptor" factory-method="urlPath">
+            <constructor-arg value="/mobile" />
+            <!-- <constructor-arg value="/tablet" /> -->
+            <constructor-arg value="/cityportal" /> <!-- For Local -->
+            <!-- <constructor-arg value="/" /> --> <!-- For Production -->
+        </bean>
+    </mvc:interceptors>
+     
+    <!-- Device aware view resolving -->
+    <bean id="liteDeviceDelegatingViewResolver" class="org.springframework.mobile.device.view.LiteDeviceDelegatingViewResolver">
+        <constructor-arg>
+            <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+                <property name="prefix" value="/WEB-INF/views/" />
+                <property name="suffix" value=".jsp" />
+            </bean>
+        </constructor-arg>
+     
+        <property name="mobilePrefix" value="mobile/" />
+        <property name="tabletPrefix" value="mobile/" />
+        <property name="enableFallback" value="true" />
+    </bean>
+     
+</beans>

@@ -1,0 +1,64 @@
+{
+  "name": "VADODARA CITY PORTAL",
+  "short_name": "CITY PORTAL",
+  "icons": [
+    {
+      "src": "resources/front/img/icon/img48white.png",
+      "sizes": "48x48",
+      "type": "image/png"
+    },
+    {
+      "src": "resources/front/img/icon/img72white.png",
+      "sizes": "72x72",
+      "type": "image/png"
+    },
+    {
+      "src": "resources/front/img/icon/img76white.png",
+      "sizes": "76x76",
+      "type": "image/png"
+    },
+    {
+      "src": "resources/front/img/icon/img96white.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "resources/front/img/icon/img120white.png",
+      "sizes": "120x120",
+      "type": "image/png"
+    },
+    {
+      "src": "resources/front/img/icon/img144white.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "resources/front/img/icon/img152white.png",
+      "sizes": "152x152",
+      "type": "image/png"
+    },
+    {
+      "src": "resources/front/img/icon/img180white.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "resources/front/img/icon/img192white.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "resources/front/img/icon/img512white.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url":".",   
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#fff",
+  "theme_color": "#ffffff",
+  "description": "App for City Portal",
+  "dir": "ltr",
+  "lang": "en-US"
+}
